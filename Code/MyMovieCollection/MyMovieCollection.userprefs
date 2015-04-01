@@ -1,0 +1,26 @@
+﻿<Properties StartupItem="MyMovieCollection.iOS/MyMovieCollection.iOS.csproj" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.8.2" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="MyMovieCollection.Android" expanded="True">
+            <Node name="Activities" expanded="True">
+              <Node name="MyMoviesActivity.cs" selected="True" />
+            </Node>
+          </Node>
+          <Node name="MyMovieCollection.Implementation" expanded="True">
+            <Node name="Utilities" expanded="True" />
+            <Node name="ViewModels" expanded="True" />
+          </Node>
+          <Node name="MyMovieCollection.iOS" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.MyMovieCollection.Android AndroidDesignerPreferredDevice="Nexus 4" />
+</Properties>
