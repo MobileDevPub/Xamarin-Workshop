@@ -1,0 +1,2 @@
+D:\Git\YoupH\Xamarin Workshop\MyMovieCollection\MyMovieCollection.iOS\obj\iPhone\Debug\
+D:\Git\YoupH\Xamarin Workshop\MyMovieCollection\MyMovieCollection.iOS\obj\iPhone\Debug\MyMovieCollection.iOS.csprojResolveAssemblyReference.cache

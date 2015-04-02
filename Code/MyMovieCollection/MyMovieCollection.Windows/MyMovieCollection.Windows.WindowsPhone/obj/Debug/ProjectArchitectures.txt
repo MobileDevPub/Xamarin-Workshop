@@ -1,0 +1,1 @@
+D:\Git\YoupH\Xamarin Workshop\MyMovieCollection\MyMovieCollection.Windows\MyMovieCollection.Windows.WindowsPhone\MyMovieCollection.Windows.WindowsPhone.csproj;neutral
