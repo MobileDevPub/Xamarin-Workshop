@@ -80,7 +80,7 @@ namespace MyMovieCollection.Model.TMDb
 				return filePath;
 			}
 
-			return String.Format ("{0}/{1}/{2}", _baseUrl, size.ToString(), filePath);
+			return String.Format ("{0}{1}{2}", _baseUrl, size.ToString(), filePath);
 		}
 	}
 }
