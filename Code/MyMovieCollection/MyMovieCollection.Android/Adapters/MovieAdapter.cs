@@ -13,7 +13,7 @@ using System.Net.Http;
 using Android.Graphics;
 using com.refractored.monodroidtoolkit.imageloader;
 
-namespace MyMovieCollection.Android.Adapters
+namespace MyMovieCollection.Droid.Adapters
 {
     public class ImageLoaderWrapper : Java.Lang.Object
     {

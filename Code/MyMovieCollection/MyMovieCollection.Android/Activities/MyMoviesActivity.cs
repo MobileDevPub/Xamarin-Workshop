@@ -7,13 +7,13 @@ using Android.Widget;
 using Android.OS;
 using Android.Support.V7.App;
 using MyMovieCollection.Implementation.Services;
-using MyMovieCollection.Android.Adapters;
+using MyMovieCollection.Droid.Adapters;
 using MyMovieCollection.Implementation.ViewModels;
 using System.Linq.Expressions;
 using com.refractored.monodroidtoolkit.imageloader;
 using MyMovieCollection.Implementation.Utilities;
 
-namespace MyMovieCollection.Android.Activities
+namespace MyMovieCollection.Droid.Activities
 {
     [Activity (Label = "My Movies", MainLauncher = true)]
     public class MyMoviesActivity : AppCompatActivity, SearchView.IOnQueryTextListener

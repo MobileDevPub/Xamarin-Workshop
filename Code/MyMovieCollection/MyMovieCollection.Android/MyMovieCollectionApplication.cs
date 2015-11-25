@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using MyMovieCollection.Implementation;
 
-namespace MyMovieCollection.Android
+namespace MyMovieCollection.Droid
 {
     /// <summary>
     /// 

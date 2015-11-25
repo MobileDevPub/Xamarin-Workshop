@@ -10,7 +10,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.App;
 
-namespace MyMovieCollection.Android.Activities
+namespace MyMovieCollection.Droid.Activities
 {
     [Activity (Label = "Movie Details")]
     public class MovieDetailsActivity : AppCompatActivity
