@@ -12,18 +12,18 @@ using Android.Support.V7.App;
 
 namespace MyMovieCollection.Android.Activities
 {
-	[Activity (Label = "Movie Details")]
-    public class MovieDetailsActivity : ActionBarActivity
-	{
-		protected override void OnCreate (Bundle bundle)
-		{
-			// Set theme and call base implementation
+    [Activity (Label = "Movie Details")]
+    public class MovieDetailsActivity : AppCompatActivity
+    {
+        protected override void OnCreate (Bundle bundle)
+        {
+            // Set theme and call base implementation
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.Movie);
 
-			// Create your application here
-		}
-	}
+            // Create your application here
+        }
+    }
 }
 

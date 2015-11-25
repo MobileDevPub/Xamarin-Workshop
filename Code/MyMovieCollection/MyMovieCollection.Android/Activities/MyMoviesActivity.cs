@@ -16,7 +16,7 @@ using MyMovieCollection.Implementation.Utilities;
 namespace MyMovieCollection.Android.Activities
 {
     [Activity (Label = "My Movies", MainLauncher = true)]
-    public class MyMoviesActivity : ActionBarActivity, SearchView.IOnQueryTextListener
+    public class MyMoviesActivity : AppCompatActivity, SearchView.IOnQueryTextListener
     {
         private ListView _list;
         private IMyMoviesViewModel _viewmodel;
