@@ -49,16 +49,37 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="Xamarin.UITest, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.UITest.1.0.0\lib\Xamarin.UITest.dll</HintPath>
+    <Reference Include="TechTalk.SpecFlow, Version=1.9.0.77, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.UITest, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.UITest.1.2.0\lib\Xamarin.UITest.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tests.cs" />
+    <Compile Include="Features\Search.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Search.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Hooks\ScenarioHooks.cs" />
+    <Compile Include="Screens\IBaseScreenInterface.cs" />
+    <Compile Include="Screens\MyMoviesScreen\AndroidMyMoviesScreen.cs" />
+    <Compile Include="Screens\MyMoviesScreen\IMyMoviesScreen.cs" />
+    <Compile Include="Screens\ScreenBase.cs" />
+    <Compile Include="Screens\ScreenNames.cs" />
+    <Compile Include="Steps\SearchSteps.cs" />
+    <Compile Include="Steps\StepsBase.cs" />
     <Compile Include="AppInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Features\Search.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Search.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -66,13 +87,10 @@
       <Project>{a9f026fe-0099-4c69-876f-66183466d258}</Project>
       <Name>MyMovieCollection.Droid</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MyMovieCollection.iOS\MyMovieCollection.iOS.csproj">
-      <Project>{332d8b0e-7cd8-4021-b246-03d4802b7c94}</Project>
-      <Name>MyMovieCollection.iOS</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
