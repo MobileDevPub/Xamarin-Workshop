@@ -464,4 +464,4 @@ _Pvt_Extensions
 **/Components
 
 # Xamarin Android Resources
-**/Resources.designer.cs
+**/Resource.designer.cs
