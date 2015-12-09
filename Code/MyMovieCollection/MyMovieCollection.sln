@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMovieCollection.Droid", "MyMovieCollection.Android\MyMovieCollection.Droid.csproj", "{A9F026FE-0099-4C69-876F-66183466D258}"
 EndProject
@@ -103,6 +103,7 @@ Global
 		{1210B078-286F-43F4-A129-2CDA8C61510B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1210B078-286F-43F4-A129-2CDA8C61510B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1210B078-286F-43F4-A129-2CDA8C61510B}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{1210B078-286F-43F4-A129-2CDA8C61510B}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{1210B078-286F-43F4-A129-2CDA8C61510B}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
 		{1210B078-286F-43F4-A129-2CDA8C61510B}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{1210B078-286F-43F4-A129-2CDA8C61510B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
