@@ -2,8 +2,8 @@
 
 using System;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 using MyMovieCollection.Implementation.ViewModels;
 using MyMovieCollection.Implementation.Utilities;
 using System.ComponentModel;
