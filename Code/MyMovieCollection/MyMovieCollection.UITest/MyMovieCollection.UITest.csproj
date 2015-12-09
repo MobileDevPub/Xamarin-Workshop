@@ -87,6 +87,10 @@
       <Project>{a9f026fe-0099-4c69-876f-66183466d258}</Project>
       <Name>MyMovieCollection.Droid</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyMovieCollection.iOS\MyMovieCollection.iOS.csproj">
+      <Project>{332d8b0e-7cd8-4021-b246-03d4802b7c94}</Project>
+      <Name>MyMovieCollection.iOS</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
