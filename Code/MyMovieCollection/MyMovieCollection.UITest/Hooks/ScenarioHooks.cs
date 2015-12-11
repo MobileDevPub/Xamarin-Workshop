@@ -13,7 +13,7 @@ namespace MijnDienst.Droid.UITest.Steps
     [Binding]
     public class ScenarioHooks
     {
-        private const Platform _platform = Platform.Android;
+		private const Platform _platform = Platform.iOS;
 
         [BeforeScenario]
         public void BeforeScenario()

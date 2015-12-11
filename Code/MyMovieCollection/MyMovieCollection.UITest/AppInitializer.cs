@@ -22,8 +22,8 @@ namespace MyMovieCollection.UITest
             }
             else
             {
-                var app = ConfigureApp.iOS.StartApp();
-                //FeatureContext.Current.Add(ScreenNames.MyMovies, new iOSMyMoviesScreen());
+				var app = ConfigureApp.iOS.StartApp();
+                FeatureContext.Current.Add(ScreenNames.MyMovies, new iOSMyMoviesScreen());
                 FeatureContext.Current.Add("App", app);
                 return app;
             }
