@@ -21,7 +21,7 @@ namespace MyMovieCollection.UITest.Steps
         [Then(@"I should see ""(.*)"" in the results")]
         public void ThenIShouldSeeInTheResults(string p0)
         {
-
+            //Check if search result is found
         }
     }
 }
