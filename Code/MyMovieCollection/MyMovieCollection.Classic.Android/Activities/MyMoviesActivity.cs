@@ -68,7 +68,11 @@ namespace MyMovieCollection.Droid.Activities
             {
                 if (args.PropertyName == ExpressionsExtensions.AsString(() => _viewmodel.SearchResults))
                 {
-                    _list.Adapter = new MovieAdapter(this, _imageLoader, _viewmodel.SearchResults);
+                    if (_list.Adapter == null)
+                    {
+                        _list.Adapter = new MovieAdapter(this, _imageLoader, _viewmodel.SearchResults);
+                    }
+                    (_list.Adapter as MovieAdapter).NotifyDataSetChanged();
                 }
             });
         }

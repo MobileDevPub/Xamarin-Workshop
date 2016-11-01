@@ -8,6 +8,7 @@ using MyMovieCollection.Implementation.ViewModels;
 using MyMovieCollection.Implementation.Utilities;
 using System.ComponentModel;
 using System.Linq.Expressions;
+using System.Linq;
 
 namespace MyMovieCollection
 {
@@ -65,8 +66,8 @@ namespace MyMovieCollection
 
         private void MovieResultSelected(int selectedItem)
         {
-            var selectedMovie = ((SearchResultsTableSource)tvSearchResults.Source).TableItems[selectedItem];
-            var controller = (DetailViewController)this.Storyboard.InstantiateViewController("DetailViewController");
+            var selectedMovie = ((SearchResultsTableSource)tvSearchResults.Source).TableItems.ElementAt(selectedItem);
+            var controller = (DetailViewController)Storyboard.InstantiateViewController("DetailViewController");
             controller.SelectedMovie = selectedMovie;
             NavigationController.PushViewController(controller, true);
         }

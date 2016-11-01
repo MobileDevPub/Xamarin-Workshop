@@ -10,7 +10,7 @@ namespace MyMovieCollection.Implementation.ViewModels
 {
     public interface IMyMoviesViewModel : INotifyPropertyChanged
     {
-        List<MovieResult> SearchResults { get; }
+        ObservableCollectionEx<MovieResult> SearchResults { get; }
 
         Task Search(string query);
     }

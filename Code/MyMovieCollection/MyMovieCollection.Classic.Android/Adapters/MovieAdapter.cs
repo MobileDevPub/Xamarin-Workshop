@@ -25,31 +25,31 @@ namespace MyMovieCollection.Droid.Adapters
     public class MovieAdapter : BaseAdapter<MovieResult>
     {
         private Context _context;
-        private List<MovieResult> _items;
+        private IEnumerable<MovieResult> _items;
         private ImageLoader _imageLoader;
 
-        public MovieAdapter (Context context, ImageLoader imageLoader, IEnumerable<MovieResult> items)
+        public MovieAdapter(Context context, ImageLoader imageLoader, IEnumerable<MovieResult> items)
         {
             _context = context;
             _imageLoader = imageLoader;
-            _items = items.ToList ();
+            _items = items;
         }
 
         #region implemented abstract members of BaseAdapter
 
-        public override long GetItemId (int position)
+        public override long GetItemId(int position)
         {
-            return this [position].id;
+            return this[position].id;
         }
 
-        public override View GetView (int position, View convertView, ViewGroup parent)
+        public override View GetView(int position, View convertView, ViewGroup parent)
         {
             ImageLoaderWrapper wrapper = null;
             var view = convertView;
             if (convertView == null)
             {
-                var inflaterService = (LayoutInflater)_context.GetSystemService (Context.LayoutInflaterService);
-                view = inflaterService.Inflate (Resource.Layout.Movie, null, false);
+                var inflaterService = (LayoutInflater)_context.GetSystemService(Context.LayoutInflaterService);
+                view = inflaterService.Inflate(Resource.Layout.Movie, null, false);
                 wrapper = new ImageLoaderWrapper();
                 wrapper.Name = view.FindViewById<TextView>(Resource.Id.movieName);
                 wrapper.Year = view.FindViewById<TextView>(Resource.Id.movieYear);
@@ -61,12 +61,12 @@ namespace MyMovieCollection.Droid.Adapters
                 wrapper = convertView.Tag as ImageLoaderWrapper;
             }
 
-            var movie = this [position];
+            var movie = this[position];
             wrapper.Name.Text = movie.title;
             wrapper.Year.Text = string.IsNullOrWhiteSpace(movie.release_date) ? string.Empty : DateTime.Parse(movie.release_date).Year.ToString();
             wrapper.Image.SetImageResource(Resource.Drawable.Icon);
-            var posterUri = TmdbImage.ImageUrl (PosterSize.w154, movie.poster_path);
-            if (!string.IsNullOrWhiteSpace (posterUri)) 
+            var posterUri = TmdbImage.ImageUrl(PosterSize.w154, movie.poster_path);
+            if (!string.IsNullOrWhiteSpace(posterUri))
             {
                 _imageLoader.DisplayImage(posterUri, wrapper.Image, Resource.Drawable.Icon);
             }
@@ -74,25 +74,30 @@ namespace MyMovieCollection.Droid.Adapters
             return view;
         }
 
-        public override int Count {
-            get {
-                return _items.Count;
+        public override int Count
+        {
+            get
+            {
+                return _items.Count();
             }
         }
 
-        public override MovieResult this [int index] {
-            get {
-                return _items [index];
+        public override MovieResult this[int index]
+        {
+            get
+            {
+                return _items.ElementAt(index);
             }
         }
         #endregion
 
         private async void SetPosterImageAsync(ImageView imageView, string imageUrl)
         {
-            using (var client = new HttpClient ()) {
-                var imageData = await client.GetByteArrayAsync (imageUrl);
-                var image = await BitmapFactory.DecodeByteArrayAsync (imageData, 0, imageData.Length);
-                imageView.SetImageBitmap (image);
+            using (var client = new HttpClient())
+            {
+                var imageData = await client.GetByteArrayAsync(imageUrl);
+                var image = await BitmapFactory.DecodeByteArrayAsync(imageData, 0, imageData.Length);
+                imageView.SetImageBitmap(image);
             }
         }
     }

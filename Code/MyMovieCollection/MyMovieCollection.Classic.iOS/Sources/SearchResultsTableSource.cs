@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UIKit;
 using System.Collections.Generic;
 using Foundation;
@@ -10,17 +11,17 @@ namespace MyMovieCollection
 	public class SearchResultsTableSource : UITableViewSource {
 	
 		public event EventHandler<int> MovieResultSelected;
-		public List<MovieResult> TableItems;
+		public IEnumerable<MovieResult> TableItems;
 		string _cellIdentifier = "TableCell";
 
-		public SearchResultsTableSource (List<MovieResult> items)
+		public SearchResultsTableSource (IEnumerable<MovieResult> items)
 		{
 			TableItems = items;
 		}
 
 		public override nint RowsInSection (UITableView tableview, nint section)
 		{
-			return TableItems.Count;
+			return TableItems.Count();
 		}
 
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
@@ -32,7 +33,7 @@ namespace MyMovieCollection
 				cell = new UITableViewCell (UITableViewCellStyle.Subtitle, _cellIdentifier);
 			}
 
-			var movie = TableItems [indexPath.Row];
+			var movie = TableItems.ElementAt(indexPath.Row);
 
 			cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
 			cell.TextLabel.Text = movie.title;

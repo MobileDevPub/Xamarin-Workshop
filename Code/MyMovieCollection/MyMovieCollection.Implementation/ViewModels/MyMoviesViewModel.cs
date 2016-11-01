@@ -13,15 +13,15 @@ namespace MyMovieCollection.Implementation.ViewModels
     {
         private ITmdbAgent _tmdbAgent;
 
-        private List<MovieResult> _searchResults;
+        private ObservableCollectionEx<MovieResult> _searchResults;
 
-        public List<MovieResult> SearchResults
+        public ObservableCollectionEx<MovieResult> SearchResults
         {
             get 
             {
                 if(_searchResults == null)
                 {
-                    _searchResults = new List<MovieResult>();
+                    _searchResults = new ObservableCollectionEx<MovieResult>();
                 }
                 return _searchResults;
             }
@@ -30,7 +30,6 @@ namespace MyMovieCollection.Implementation.ViewModels
                 if (_searchResults != value)
                 {
                     _searchResults = value;
-                    OnPropertyChanged();
                 }
             }
         }
@@ -46,7 +45,11 @@ namespace MyMovieCollection.Implementation.ViewModels
         public async Task Search(string query)
         {
             var result = await _tmdbAgent.Search(query);
-            SearchResults = result.results;
+
+            SearchResults.Clear();
+            SearchResults.AddRange(result.results);
+
+            OnPropertyChanged(ExpressionsExtensions.AsString(() => SearchResults));
         }
     }
 }
