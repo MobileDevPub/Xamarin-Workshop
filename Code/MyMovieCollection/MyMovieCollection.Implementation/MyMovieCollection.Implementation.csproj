@@ -48,6 +48,7 @@
     <Compile Include="Model\TmdbMovieBase.cs" />
     <Compile Include="Model\TmdbMovieSearch.cs" />
     <Compile Include="Model\TmdbSearchResultBase.cs" />
+    <Compile Include="Utilities\ExpressionsExtensions.cs" />
     <Compile Include="Utilities\ServiceContainer.cs" />
     <Compile Include="ViewModels\IMyMoviesViewModel.cs" />
     <Compile Include="ViewModels\MyMoviesViewModel.cs" />

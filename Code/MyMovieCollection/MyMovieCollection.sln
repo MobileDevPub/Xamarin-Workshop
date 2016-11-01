@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMovieCollection.Droid", "MyMovieCollection.Android\MyMovieCollection.Droid.csproj", "{A9F026FE-0099-4C69-876F-66183466D258}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMovieCollection.Classic.Droid", "MyMovieCollection.Classic.Android\MyMovieCollection.Classic.Droid.csproj", "{A9F026FE-0099-4C69-876F-66183466D258}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMovieCollection.iOS", "MyMovieCollection.iOS\MyMovieCollection.iOS.csproj", "{332D8B0E-7CD8-4021-B246-03D4802B7C94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMovieCollection.Classic.iOS", "MyMovieCollection.Classic.iOS\MyMovieCollection.Classic.iOS.csproj", "{332D8B0E-7CD8-4021-B246-03D4802B7C94}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMovieCollection.Implementation", "MyMovieCollection.Implementation\MyMovieCollection.Implementation.csproj", "{1210B078-286F-43F4-A129-2CDA8C61510B}"
 EndProject

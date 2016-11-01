@@ -37,12 +37,14 @@ namespace MyMovieCollection
 			cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
 			cell.TextLabel.Text = movie.title;
 
-			if (!String.IsNullOrEmpty ( movie.release_date )) {
+			if (!string.IsNullOrEmpty ( movie.release_date ))
+            {
 				cell.DetailTextLabel.Text = movie.release_date.Substring(0, 4);
 			}
 
 			var imageUrl = TmdbImage.ImageUrl (PosterSize.w154, movie.poster_path);
-			if(!String.IsNullOrEmpty(imageUrl)) {
+			if(!string.IsNullOrEmpty(imageUrl))
+            {
 				cell.ImageView.SetImage (
 					url: new NSUrl (imageUrl),
 					placeholder: UIImage.FromBundle ("movie.png")
@@ -54,11 +56,8 @@ namespace MyMovieCollection
 
 		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 		{
-			if (MovieResultSelected != null) {
-				MovieResultSelected (this, indexPath.Row);
-			}
-		}
-
+            MovieResultSelected?.Invoke(this, indexPath.Row);
+        }
 	}
 }
 

@@ -15,7 +15,7 @@ using MyMovieCollection.Implementation.Utilities;
 
 namespace MyMovieCollection.Droid.Activities
 {
-    [Activity (Label = "My Movies", MainLauncher = true)]
+    [Activity(Label = "My Movies", MainLauncher = true)]
     public class MyMoviesActivity : AppCompatActivity, SearchView.IOnQueryTextListener
     {
         private ListView _list;
@@ -30,15 +30,15 @@ namespace MyMovieCollection.Droid.Activities
             _viewmodel = ServiceContainer.Resolve<IMyMoviesViewModel>();
         }
 
-        protected override void OnCreate (Bundle bundle)
+        protected override void OnCreate(Bundle bundle)
         {
             // Set theme and call base implementation
-            base.OnCreate (bundle);
+            base.OnCreate(bundle);
 
             _imageLoader = new ImageLoader(this, 200);
 
             // Set our view from the "main" layout resource
-            SetContentView (Resource.Layout.MyMovies);
+            SetContentView(Resource.Layout.MyMovies);
             _list = FindViewById<ListView>(Resource.Id.list);
             _list.ItemClick += _list_ItemClick;
             _list.EmptyView = FindViewById<TextView>(Resource.Id.empty);
@@ -66,7 +66,7 @@ namespace MyMovieCollection.Droid.Activities
         {
             RunOnUiThread(() =>
             {
-                if(args.PropertyName == AsString(() => _viewmodel.SearchResults))
+                if (args.PropertyName == ExpressionsExtensions.AsString(() => _viewmodel.SearchResults))
                 {
                     _list.Adapter = new MovieAdapter(this, _imageLoader, _viewmodel.SearchResults);
                 }
@@ -78,59 +78,36 @@ namespace MyMovieCollection.Droid.Activities
             StartActivity(typeof(MovieDetailsActivity));
         }
 
-        public override bool OnCreateOptionsMenu (IMenu menu)
+        public override bool OnCreateOptionsMenu(IMenu menu)
         {
             //Create the search view
-            SearchView searchView = new SearchView (SupportActionBar.ThemedContext);
-            searchView.SetQueryHint ("Search for movies...");
-            searchView.SetOnQueryTextListener (this);
+            SearchView searchView = new SearchView(SupportActionBar.ThemedContext);
+            searchView.SetQueryHint("Search for movies...");
+            searchView.SetOnQueryTextListener(this);
 
             // Add it to the ActionBar
-            menu.Add ("Search")
-                .SetIcon (global::Android.Resource.Drawable.IcMenuSearch)
-                .SetActionView (searchView)
-                .SetShowAsAction (ShowAsAction.Always);
+            menu.Add("Search")
+                .SetIcon(global::Android.Resource.Drawable.IcMenuSearch)
+                .SetActionView(searchView)
+                .SetShowAsAction(ShowAsAction.Always);
 
             return true;
         }
 
-        public bool OnQueryTextChange (string newText)
+        public bool OnQueryTextChange(string newText)
         {
-            Search(newText);
             return false;
         }
 
-        public bool OnQueryTextSubmit (string query)
+        public bool OnQueryTextSubmit(string query)
         {
+            Search(query);
             return false;
         }
 
         private async void Search(string query)
         {
             await _viewmodel.Search(query);
-        }
-
-        /// <summary>
-        /// Returns the expression member name
-        /// </summary>
-        /// <param name="expression">The expression.</param>
-        /// <returns></returns>
-        /// <exception cref="System.ArgumentNullException">expression</exception>
-        /// <exception cref="System.ArgumentException">Invalid expression:  + expression.Body.NodeType;expression</exception>
-        private static string AsString(Expression<Func<object>> expression)
-        {
-            if (null == expression) throw new ArgumentNullException("expression");
-
-            var member = expression.Body as MemberExpression;
-            if (member == null)
-            {
-                var ubody = expression.Body as UnaryExpression;
-                member = ubody.Operand as MemberExpression;
-            }
-
-            if (null == member) throw new ArgumentException("Invalid expression: " + expression.Body.NodeType, "expression");
-            return member.Member.Name;
-
         }
     }
 }
