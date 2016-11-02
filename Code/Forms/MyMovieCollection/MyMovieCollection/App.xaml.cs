@@ -16,7 +16,7 @@ namespace MyMovieCollection
 
             Setup.Initialize();
 
-            MainPage = new MyMovieCollection.MainPage();
+            MainPage = new NavigationPage(new MyMovieCollection.MainPage());
         }
 
         protected override void OnStart()

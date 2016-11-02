@@ -13,6 +13,13 @@ namespace MyMovieCollection.Model.TMDb
 		public string original_title { get; set; }
 		public string release_date { get; set; }
 		public string poster_path { get; set; }
+        public string complete_poster_path
+        {
+            get
+            {
+                return TmdbImage.ImageUrl(PosterSize.w154, poster_path); ;
+            }
+        }
 		public string title { get; set; }
 		public double vote_average { get; set; }
 		public int vote_count { get; set; }

@@ -1,5 +1,6 @@
 ﻿using MyMovieCollection.Implementation.Utilities;
 using MyMovieCollection.Implementation.ViewModels;
+using MyMovieCollection.Model.TMDb;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,24 +17,23 @@ namespace MyMovieCollection
         public MainPage()
         {
             InitializeComponent();
+            Title = "Movies";
+
             _viewmodel = ServiceContainer.Resolve<IMyMoviesViewModel>();
             listView.ItemsSource = _viewmodel.SearchResults;
         }
 
         private void OnValueChanged(object sender, TextChangedEventArgs e)
         {
-            _viewmodel.Search(SearchEntry.Text);
+            Task.Run(() => _viewmodel.Search(SearchEntry.Text));
         }
 
         private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            //var personInfo = e.SelectedItem as Person;
-            //var employeeView = new EmployeeXaml
-            //{
-            //    BindingContext = new PersonViewModel(personInfo, favoritesRepository)
-            //};
+            var movie = e.SelectedItem as MovieResult;
 
-            //Navigation.PushAsync(employeeView);
+            var movieDetailPage = new MovieDetailPage();
+            Navigation.PushAsync(movieDetailPage);
         }
     }
 }

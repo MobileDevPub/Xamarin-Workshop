@@ -89,17 +89,8 @@ namespace MyMovieCollection.Droid.Adapters
                 return _items.ElementAt(index);
             }
         }
-        #endregion
 
-        private async void SetPosterImageAsync(ImageView imageView, string imageUrl)
-        {
-            using (var client = new HttpClient())
-            {
-                var imageData = await client.GetByteArrayAsync(imageUrl);
-                var image = await BitmapFactory.DecodeByteArrayAsync(imageData, 0, imageData.Length);
-                imageView.SetImageBitmap(image);
-            }
-        }
+        #endregion
     }
 }
 

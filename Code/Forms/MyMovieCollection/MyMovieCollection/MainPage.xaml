@@ -11,7 +11,7 @@
           <DataTemplate>
             <ViewCell>
               <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                <!--<Image Source="{Binding Photo}" WidthRequest="44" HeightRequest="44" />-->
+                <Image Source="{Binding complete_poster_path}" WidthRequest="44" HeightRequest="44" />
                 <Label Text="{Binding title}" VerticalOptions="StartAndExpand" VerticalTextAlignment="Start" />
               </StackLayout>
             </ViewCell>
